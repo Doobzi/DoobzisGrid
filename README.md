@@ -54,7 +54,7 @@
 
 ### Quick Install (Recommended)
 
-1. Download the **latest release** from the [Releases](https://github.com/Doobzi/Doobzi-s-Grid-Unturned-Plugin/releases) page
+1. Download the **latest release** from the [Releases](https://github.com/Doobzi/DoobzisGrid/releases) page
 2. Copy **`DoobzisGrid.dll`** into your server's `Rocket/Plugins/` folder
 3. *(Optional — only if using MySQL)* Copy **`MySql.Data.dll`** into your server's `Rocket/Libraries/` folder
 4. Restart your server
@@ -71,8 +71,8 @@
 ## 🔨 Building from Source
 
 ```bash
-git clone https://github.com/Doobzi/Doobzi-s-Grid-Unturned-Plugin.git
-cd Doobzi-s-Grid-Unturned-Plugin
+git clone https://github.com/Doobzi/DoobzisGrid.git
+cd DoobzisGrid
 dotnet build -c Release
 ```
 
