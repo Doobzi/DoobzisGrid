@@ -14,7 +14,7 @@ namespace BountyPlugin
         public string Help => "Buy an item from the shop";
         public string Syntax => "/shopbuy <itemId> [amount]";
         public List<string> Aliases => new List<string> { "buy" };
-        public List<string> Permissions => new List<string> { "bounty.shop" };
+        public List<string> Permissions => new List<string> { "shop.buy" };
 
         public void Execute(IRocketPlayer caller, string[] command)
         {

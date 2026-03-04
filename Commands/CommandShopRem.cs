@@ -13,7 +13,7 @@ namespace BountyPlugin
         public string Help => "Remove an item from the shop";
         public string Syntax => "/shoprem <id>";
         public List<string> Aliases => new List<string>();
-        public List<string> Permissions => new List<string> { "bounty.shopadmin" };
+        public List<string> Permissions => new List<string> { "shop.admin" };
 
         public void Execute(IRocketPlayer caller, string[] command)
         {

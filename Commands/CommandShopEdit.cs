@@ -13,7 +13,7 @@ namespace BountyPlugin
         public string Help => "Edit a shop item's price and stock";
         public string Syntax => "/shopedit <id> <price> [stock]";
         public List<string> Aliases => new List<string>();
-        public List<string> Permissions => new List<string> { "bounty.shopadmin" };
+        public List<string> Permissions => new List<string> { "shop.admin" };
 
         public void Execute(IRocketPlayer caller, string[] command)
         {

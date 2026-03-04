@@ -14,7 +14,7 @@ namespace BountyPlugin
         public string Help => "Search auction listings";
         public string Syntax => "/ahsearch <keyword>";
         public List<string> Aliases => new List<string>();
-        public List<string> Permissions => new List<string> { "bounty.auction" };
+        public List<string> Permissions => new List<string> { "auction.use" };
 
         public void Execute(IRocketPlayer caller, string[] command)
         {

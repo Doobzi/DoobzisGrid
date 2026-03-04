@@ -13,7 +13,7 @@ namespace BountyPlugin
         public string Help => "Reload all plugin data from disk";
         public string Syntax => "/bountyreload";
         public List<string> Aliases => new List<string>();
-        public List<string> Permissions => new List<string> { "bounty.admin" };
+        public List<string> Permissions => new List<string> { "bounty.reload" };
 
         public void Execute(IRocketPlayer caller, string[] command)
         {

@@ -13,7 +13,7 @@ namespace BountyPlugin
         public string Help => "Check your balance";
         public string Syntax => "/balance";
         public List<string> Aliases => new List<string> { "bal" };
-        public List<string> Permissions => new List<string> { "bounty.balance" };
+        public List<string> Permissions => new List<string> { "economy.balance" };
 
         public void Execute(IRocketPlayer caller, string[] command)
         {

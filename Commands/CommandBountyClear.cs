@@ -13,7 +13,7 @@ namespace BountyPlugin
         public string Help => "Admin: Clear a player's bounty";
         public string Syntax => "/bountyclear <player>";
         public List<string> Aliases => new List<string> { "bc" };
-        public List<string> Permissions => new List<string> { "bounty.admin" };
+        public List<string> Permissions => new List<string> { "bounty.clear" };
 
         public void Execute(IRocketPlayer caller, string[] command)
         {

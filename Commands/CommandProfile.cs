@@ -14,7 +14,7 @@ namespace BountyPlugin
         public string Help => "View a player's full profile";
         public string Syntax => "/profile [player]";
         public List<string> Aliases => new List<string>();
-        public List<string> Permissions => new List<string> { "bounty.profile" };
+        public List<string> Permissions => new List<string> { "economy.profile" };
 
         public void Execute(IRocketPlayer caller, string[] command)
         {

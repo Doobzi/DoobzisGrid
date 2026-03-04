@@ -13,7 +13,7 @@ namespace BountyPlugin
         public string Help => "Admin: Set a player's balance to a specific amount";
         public string Syntax => "/ecoset <player> <amount>";
         public List<string> Aliases => new List<string>();
-        public List<string> Permissions => new List<string> { "bounty.ecoadmin" };
+        public List<string> Permissions => new List<string> { "economy.admin" };
 
         public void Execute(IRocketPlayer caller, string[] command)
         {

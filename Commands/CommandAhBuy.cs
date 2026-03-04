@@ -13,7 +13,7 @@ namespace BountyPlugin
         public string Help => "Buy an auction listing";
         public string Syntax => "/ahbuy <listingId>";
         public List<string> Aliases => new List<string>();
-        public List<string> Permissions => new List<string> { "bounty.auction" };
+        public List<string> Permissions => new List<string> { "auction.use" };
 
         public void Execute(IRocketPlayer caller, string[] command)
         {

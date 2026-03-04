@@ -13,7 +13,7 @@ namespace BountyPlugin
         public string Help => "Shows all plugin commands";
         public string Syntax => "/gridhelp";
         public List<string> Aliases => new List<string>();
-        public List<string> Permissions => new List<string> { "bounty.help" };
+        public List<string> Permissions => new List<string> { "grid.help" };
 
         public void Execute(IRocketPlayer caller, string[] command)
         {

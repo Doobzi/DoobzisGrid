@@ -14,7 +14,7 @@ namespace BountyPlugin
         public string Help => "Browse shop by category";
         public string Syntax => "/shopcat <category> [page]";
         public List<string> Aliases => new List<string>();
-        public List<string> Permissions => new List<string> { "bounty.shop" };
+        public List<string> Permissions => new List<string> { "shop.browse" };
 
         public void Execute(IRocketPlayer caller, string[] command)
         {

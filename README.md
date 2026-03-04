@@ -100,22 +100,22 @@ All dependencies (RocketMod, Unturned, MySql.Data) are pulled automatically via 
 |---------|-------|------------|-------------|
 | `/balance` | `/bal` | `economy.balance` | Check your current balance |
 | `/pay <player> <amount>` | — | `economy.pay` | Send money to another player |
-| `/transactions` | `/tx` | `economy.balance` | View recent transactions |
-| `/profile` | `/pf` | `economy.balance` | View your full profile & achievements |
+| `/transactions` | `/txn` | `economy.transactions` | View recent transactions |
+| `/profile` | — | `economy.profile` | View your full profile & achievements |
 
 ### Shop
 
 | Command | Alias | Permission | Description |
 |---------|-------|------------|-------------|
-| `/shop [page]` | — | `shop.buy` | Browse all shop items |
-| `/shopbuy <ID> [qty]` | `/sb` | `shop.buy` | Buy an item by ID |
+| `/shop [page]` | — | `shop.browse` | Browse all shop items |
+| `/shopbuy <ID> [qty]` | `/buy` | `shop.buy` | Buy an item by ID |
 | `/sell <ID> [qty]` | — | `shop.sell` | Sell an item from your inventory |
-| `/shopsearch <keyword>` | `/ss` | `shop.buy` | Search for items by name |
-| `/shopcats` | — | `shop.buy` | View all shop categories |
-| `/shopcat <category> [page]` | — | `shop.buy` | Browse items in a category |
-| `/shopadd <ID> <price>` | — | `shop.add` | Add an item to the shop *(admin)* |
-| `/shoprem <ID>` | — | `shop.remove` | Remove an item from the shop *(admin)* |
-| `/shopedit <ID> <price> <stock>` | — | `shop.edit` | Edit item price/stock *(admin)* |
+| `/shopsearch <keyword>` | `/ss` | `shop.browse` | Search for items by name |
+| `/shopcats` | — | `shop.browse` | View all shop categories |
+| `/shopcat <category> [page]` | — | `shop.browse` | Browse items in a category |
+| `/shopadd <ID> <price>` | — | `shop.admin` | Add an item to the shop *(admin)* |
+| `/shoprem <ID>` | — | `shop.admin` | Remove an item from the shop *(admin)* |
+| `/shopedit <ID> <price> <stock>` | — | `shop.admin` | Edit item price/stock *(admin)* |
 
 ### Auction House
 
@@ -132,12 +132,12 @@ All dependencies (RocketMod, Unturned, MySql.Data) are pulled automatically via 
 
 | Command | Alias | Permission | Description |
 |---------|-------|------------|-------------|
-| `/ecogive <player> <amount>` | — | `bounty.ecoadmin` | Give money to a player |
-| `/ecotake <player> <amount>` | — | `bounty.ecoadmin` | Take money from a player |
-| `/ecoset <player> <amount>` | — | `bounty.ecoadmin` | Set a player's balance |
-| `/ecoreset <player>` | — | `bounty.ecoadmin` | Reset a player to starting balance |
+| `/ecogive <player> <amount>` | — | `economy.admin` | Give money to a player |
+| `/ecotake <player> <amount>` | — | `economy.admin` | Take money from a player |
+| `/ecoset <player> <amount>` | — | `economy.admin` | Set a player's balance |
+| `/ecoreset <player>` | — | `economy.admin` | Reset a player to starting balance |
 | `/bountyreload` | — | `bounty.reload` | Hot-reload plugin configuration |
-| `/gridhelp` | — | *none* | Show all available commands |
+| `/gridhelp` | — | `grid.help` | Show all available commands |
 
 ---
 
@@ -276,39 +276,92 @@ Sends real-time event notifications to a Discord channel via webhook.
 
 Add these to your `Permissions.config.xml` to control access.
 
+### All Permission Nodes
+
+| Permission | Group | Commands |
+|------------|-------|----------|
+| `economy.balance` | Player | `/balance` |
+| `economy.pay` | Player | `/pay` |
+| `economy.transactions` | Player | `/transactions` |
+| `economy.profile` | Player | `/profile` |
+| `shop.browse` | Player | `/shop`, `/shopsearch`, `/shopcats`, `/shopcat` |
+| `shop.buy` | Player | `/shopbuy` (alias `/buy`) |
+| `shop.sell` | Player | `/sell` |
+| `auction.use` | Player | `/ahlist`, `/ahsell`, `/ahbuy`, `/ahcancel`, `/ahsearch`, `/ahmy` |
+| `bounty.add` | Player | `/bountyadd` |
+| `bounty.list` | Player | `/bountylist` |
+| `bounty.top` | Player | `/bountytop` |
+| `bounty.hunter` | Player | `/bountyhunter` |
+| `grid.help` | Player | `/gridhelp` |
+| `shop.admin` | Admin | `/shopadd`, `/shoprem`, `/shopedit` |
+| `economy.admin` | Admin | `/ecogive`, `/ecotake`, `/ecoset`, `/ecoreset` |
+| `bounty.clear` | Admin | `/bountyclear` |
+| `bounty.reload` | Admin | `/bountyreload` |
+
 <details>
-<summary><strong>Recommended Player Permissions</strong></summary>
+<summary><strong>Recommended Player Group</strong></summary>
 
 ```xml
 <Group>
   <Id>default</Id>
   <DisplayName>Player</DisplayName>
   <Permissions>
+    <!-- Economy -->
+    <Permission>economy.balance</Permission>
+    <Permission>economy.pay</Permission>
+    <Permission>economy.transactions</Permission>
+    <Permission>economy.profile</Permission>
+    <!-- Shop -->
+    <Permission>shop.browse</Permission>
+    <Permission>shop.buy</Permission>
+    <Permission>shop.sell</Permission>
+    <!-- Auction House -->
+    <Permission>auction.use</Permission>
+    <!-- Bounty -->
     <Permission>bounty.add</Permission>
     <Permission>bounty.list</Permission>
     <Permission>bounty.top</Permission>
     <Permission>bounty.hunter</Permission>
-    <Permission>economy.balance</Permission>
-    <Permission>economy.pay</Permission>
-    <Permission>shop.buy</Permission>
-    <Permission>shop.sell</Permission>
-    <Permission>auction.use</Permission>
+    <!-- Utility -->
+    <Permission>grid.help</Permission>
   </Permissions>
 </Group>
 ```
 
 </details>
 
-**Admin-only permissions:**
+<details>
+<summary><strong>Recommended Admin Group</strong></summary>
 
-| Permission | Grants Access To |
-|------------|-----------------|
-| `shop.add` | `/shopadd` — Add items to shop |
-| `shop.remove` | `/shoprem` — Remove items from shop |
-| `shop.edit` | `/shopedit` — Edit shop prices/stock |
-| `bounty.clear` | `/bountyclear` — Remove bounties |
-| `bounty.ecoadmin` | `/ecogive`, `/ecotake`, `/ecoset`, `/ecoreset` |
-| `bounty.reload` | `/bountyreload` — Hot-reload config |
+```xml
+<Group>
+  <Id>admin</Id>
+  <DisplayName>Admin</DisplayName>
+  <Permissions>
+    <!-- All player permissions -->
+    <Permission>economy.balance</Permission>
+    <Permission>economy.pay</Permission>
+    <Permission>economy.transactions</Permission>
+    <Permission>economy.profile</Permission>
+    <Permission>shop.browse</Permission>
+    <Permission>shop.buy</Permission>
+    <Permission>shop.sell</Permission>
+    <Permission>auction.use</Permission>
+    <Permission>bounty.add</Permission>
+    <Permission>bounty.list</Permission>
+    <Permission>bounty.top</Permission>
+    <Permission>bounty.hunter</Permission>
+    <Permission>grid.help</Permission>
+    <!-- Admin-only -->
+    <Permission>shop.admin</Permission>
+    <Permission>economy.admin</Permission>
+    <Permission>bounty.clear</Permission>
+    <Permission>bounty.reload</Permission>
+  </Permissions>
+</Group>
+```
+
+</details>
 
 ---
 

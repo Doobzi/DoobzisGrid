@@ -14,7 +14,7 @@ namespace BountyPlugin
         public string Help => "Search the shop by keyword";
         public string Syntax => "/shopsearch <keyword>";
         public List<string> Aliases => new List<string> { "ss" };
-        public List<string> Permissions => new List<string> { "bounty.shop" };
+        public List<string> Permissions => new List<string> { "shop.browse" };
 
         public void Execute(IRocketPlayer caller, string[] command)
         {

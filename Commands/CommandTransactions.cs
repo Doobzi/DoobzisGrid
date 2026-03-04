@@ -14,7 +14,7 @@ namespace BountyPlugin
         public string Help => "View your recent transactions";
         public string Syntax => "/transactions [count]";
         public List<string> Aliases => new List<string> { "txn" };
-        public List<string> Permissions => new List<string> { "bounty.transactions" };
+        public List<string> Permissions => new List<string> { "economy.transactions" };
 
         public void Execute(IRocketPlayer caller, string[] command)
         {
